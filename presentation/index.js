@@ -116,7 +116,7 @@ export default class Presentation extends React.Component {
             <Link href="http://www.aws.com">go to AWS Dashboard</Link>
           </Slide>
 
-          <Slide transition={["slide"]} notes="DDOS https://aws.amazon.com/blogs/security/how-to-configure-rate-based-blacklisting-with-aws-waf-and-aws-lambda/ ">
+          <Slide transition={["slide"]} notes="DDOS https://aws.amazon.com/blogs/security/how-to-configure-rate-based-blacklisting-with-aws-waf-and-aws-lambda/    https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf ">
             <Heading size={2} textColor="headingColor">
               Further thoughts
             </Heading>
