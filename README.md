@@ -2,7 +2,7 @@
 
 Contains a presentation for our first serverless-vienna meetup.
 
-## Spectacle Boilerplate
+## Built on Spectacle Boilerplate
 
 ### Reference
 
