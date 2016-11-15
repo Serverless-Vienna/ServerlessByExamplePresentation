@@ -1,12 +1,12 @@
-Organizational Slides
-Serverless meetup
-Agenda
+// Organizational Slides
+// Serverless meetup
+// Agenda
 
-2 Talks
-break
-Talk
+// 2 Talks
+// break
+// Talk
 
-Sponsor auf Folie erwähnen, Seminar nicht
+// Sponsor auf Folie erwähnen, Seminar nicht
 
 
 
@@ -48,6 +48,7 @@ import Interactive from "../assets/interactive";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("../assets/serverless.css");
 
 
 const images = {
@@ -56,7 +57,16 @@ const images = {
   // logo: require("../assets/formidable-logo.svg"),
   // markdown: require("../assets/markdown.png"),
   providers: require('../assets/providers.png'),
-  blockDiagram: require('../assets/comment-showcase-block-diagram.png')
+  blockDiagram: require('../assets/comment-showcase-block-diagram.png'),
+  screen_apiGW_CORS: require('../assets/screen_apiGW_CORS.png'),
+  screen_apiGW_methodExecutionGET: require('../assets/screen_apiGW_methodExecutionGET.png'),
+  screen_apiGW_methodExecutionPOST: require('../assets/screen_apiGW_methodExecutionPOST.png'),
+  screen_aws_services: require('../assets/screen_aws_services.png'),
+  screen_aws_services_used: require('../assets/screen_aws_services_used.png'),
+  screen_iam_identityProviders: require('../assets/screen_iam_identityProviders.png'),
+  screen_iam_roleMgmt: require('../assets/screen_iam_roleMgmt.png'),
+  screen_iot_mqttClient: require('../assets/screen_iot_mqttClient.png'),
+  screen_iot_resources: require('../assets/screen_iot_resources.png')
 };
 
 preloader(images);
@@ -64,7 +74,7 @@ preloader(images);
 const theme = createTheme({
   //primary: "#ff4081"
   primary: "#665d60",
-  textColor: "black",
+  textColor: "white",
   headingColor: "white"
 });
 
@@ -89,7 +99,7 @@ export default class Presentation extends React.Component {
 
             <Text textSize="1.5em" margin="20px 0px 0px" bold>Gerald Weber</Text>
           </Slide>
-          
+
           {/* <Slide transition={["slide"]}>
             <Heading size={2} textColor="headingColor">
               Content
@@ -113,7 +123,7 @@ export default class Presentation extends React.Component {
             Use case should include:
             <List>
               <Appear><ListItem>Third Party authentication (eg. Google)</ListItem></Appear>
-              <Appear><ListItem>serverless tier</ListItem></Appear>
+              <Appear><ListItem>Serverless tier</ListItem></Appear>
               <Appear><ListItem>NoSQL datastore</ListItem></Appear>
               <Appear><ListItem>Realtime communication</ListItem></Appear>
             </List>
@@ -137,25 +147,24 @@ export default class Presentation extends React.Component {
             </Layout>
           </Slide>
 
-          <Slide transition={["slide"]} notes="">
+          <Slide transition={["slide"]} notes="wanted to see how far we can go with AWS">
             <Heading size={2} textColor="headingColor">
               Why Amazon?
             </Heading>
             <List>
-              Leading Cloud provider
-              Free tier
-              serverless pioneer
+              <Appear><ListItem>Leading cloud provider</ListItem></Appear>
+              <Appear><ListItem>Free tier</ListItem></Appear>
+              <Appear><ListItem>Serverless pioneer</ListItem></Appear>
             </List>
           </Slide>
 
-          <Slide transition={["slide"]}>
+          <Slide transition={["slide"]} notes="short description of the blocks in the displayed order">
             <Heading size={2} textColor="headingColor">
               Building Blocks
             </Heading>
             <Layout>
               <Fill>
                 <Image src={images.blockDiagram.replace("/", "")} width="100%" />
-                 TODO Reihenfolge des Seitenaufbaus mit Nummern in Grafik abbilden, kurze!! Beschreibung der Blöcke
               </Fill>
             </Layout>
             {/* IAM Identiy Provider vs. Cognito: Federated Identities: Identity Pool for google authentication 
@@ -163,63 +172,170 @@ export default class Presentation extends React.Component {
               commentsRole + Trusted Relationship AWS_IAM  */}
           </Slide>
 
+          <Slide transition={["slide"]} notes="TODO: Screenshots from AWS, Code: initMQTT, publishComment, getComments; Code vereinfachen">
+            <Heading size={2} textColor="headingColor">
+              AWS #1
+            </Heading>
+
+            <Image src={images.screen_aws_services.replace("/", "")} width="90%" />
+          </Slide>
+
+
           <Slide transition={["slide"]}>
             <Heading size={2} textColor="headingColor">
-              Implementation / Configuration
+              AWS #2
             </Heading>
-            TODO: Screenshots from AWS, Code: initMQTT, publishComment, getComments; Code vereinfachen
+            <Image src={images.screen_aws_services_used.replace("/", "")} width="90%" />
+          </Slide>
 
-            <Link target="_blank" href="http://www.aws.amazon.com">go to AWS Dashboard</Link>
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #3
+            </Heading>
+            <Image src={images.screen_apiGW_methodExecutionGET.replace("/", "")} width="100%" />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #4
+            </Heading>
+            <Image src={images.screen_apiGW_methodExecutionPOST.replace("/", "")} width="100%" />
+          </Slide>
+
+
+
+          <Slide transition={["slide"]} notes="CORS Cross Origin Resource Sharing">
+            <Heading size={2} textColor="headingColor">
+              AWS #5
+            </Heading>
+            <Image src={images.screen_apiGW_CORS.replace("/", "")} width="100%" />
+          </Slide>
+
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #6
+            </Heading>
+            <Image src={images.screen_iam_identityProviders.replace("/", "")} width="100%" />
+          </Slide>
+
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #7
+            </Heading>
+            <Image src={images.screen_iam_roleMgmt.replace("/", "")} width="100%" />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #8
+            </Heading>
+            <Image src={images.screen_iot_resources.replace("/", "")} width="100%" />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              AWS #9
+            </Heading>
+            <Image src={images.screen_iot_mqttClient.replace("/", "")} width="100%" />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              Lambda #1
+            </Heading>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/lambda.js")}
+              margin="20px auto"
+              />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              Code #1
+            </Heading>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/initMQTT.js")}
+              margin="20px auto"
+              />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              Code #2
+            </Heading>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/fetchComments.js")}
+              margin="20px auto"
+              />
+          </Slide>
+
+
+          <Slide transition={["slide"]}>
+            <Heading size={2} textColor="headingColor">
+              Code #3
+            </Heading>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/publishComments.js")}
+              margin="20px auto"
+              />
+          </Slide>
+
+
+          <Slide transition={["slide"]} notes="Developer experience: Tooling, testing, deployment; More CLI: , eg. export CLI; Frontend optimization: Optimistic,async, non-blocking;    https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf ">
+            <Heading size={2} textColor="headingColor">
+              Thoughts
+            </Heading>
+            <List>
+              <Appear><ListItem>Improve security</ListItem></Appear>
+              <Appear><ListItem>Frontend optimization</ListItem></Appear>
+              <Appear><ListItem>Monitoring / Logging</ListItem></Appear>
+              <Appear><ListItem>Vendor lock-in</ListItem></Appear>
+              <Appear><ListItem>More CLI</ListItem></Appear>
+              <Appear><ListItem>Developer experience</ListItem></Appear>
+            </List>
           </Slide>
 
           <Slide transition={["slide"]} notes="Developer experience: Tooling, testing, deployment; More CLI: , eg. export CLI; Frontend optimization: Optimistic,async, non-blocking;    https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf ">
-            <Layout>
-              <Fill>
-                <Heading size={2} textColor="headingColor">
-                  Thoughts
-                </Heading>
-                <List>
-                  <Appear><ListItem>Improve security</ListItem></Appear>
-                  <Appear><ListItem>Frontend optimization</ListItem></Appear>
-                  <Appear><ListItem>Monitoring / Logging</ListItem></Appear>
-                  <Appear><ListItem>Vendor lock-in</ListItem></Appear>
-                  <Appear><ListItem>More CLI</ListItem></Appear>
-                  <Appear><ListItem>Developer experience</ListItem></Appear>
-                  
-                </List>
-              </Fill>
-              <Fill>
-                <Heading size={2} textColor="headingColor" note="Getting things done: Deployment if endpoints are correct, it works; No Cors: does not provide CORS Headers when an error occurs, Authorization: where and who is sometimes not clear,">
-                  Learnings
-                </Heading>
-                <List>
-                  <Appear><ListItem>Orchestration</ListItem></Appear>
-                  <Appear><ListItem>Fragmented and complete docs</ListItem></Appear>
-                  <Appear><ListItem>Getting things done</ListItem></Appear>
-                  <Appear><ListItem>No CORS headers on internal error</ListItem></Appear>
-                  <Appear><ListItem>Roles/Policies - powerful but cumbersome</ListItem></Appear>
-                
-                  Plus
-
-                  <Appear><ListItem>Online editors</ListItem></Appear>
-                </List>
-              </Fill>
-            </Layout>
-
+            <Heading size={2} textColor="headingColor" note="Getting things done: Deployment if endpoints are correct, it works; No Cors: does not provide CORS Headers when an error occurs, Authorization: where and who is sometimes not clear,">
+              Learnings
+            </Heading>
+            <List>
+              <Appear><ListItem>Orchestration</ListItem></Appear>
+              <Appear><ListItem>Fragmented and complete docs</ListItem></Appear>
+              <Appear><ListItem>Getting things done</ListItem></Appear>
+              <Appear><ListItem>No CORS headers on internal error</ListItem></Appear>
+              <Appear><ListItem>Roles/Policies - powerful but cumbersome</ListItem></Appear>
+              <Appear><ListItem>Online editors</ListItem></Appear>
+            </List>
           </Slide>
 
-          <Slide transition={["slide"]}>
-            <Heading size={2} fit caps textColor="headingColor">
-              Thank you
+      <Slide transition={["slide"]}>
+        <Heading size={2} fit caps textColor="headingColor">
+          Thank you
             </Heading>
 
-            <Heading size={1} textColor="textColor">
-              Discussion
+        <Heading size={1} textColor="textColor">
+          Discussion
             </Heading>
-          </Slide>
+      </Slide>
 
-        </Deck>
-      </Spectacle>
+        </Deck >
+      </Spectacle >
     );
   }
 }
