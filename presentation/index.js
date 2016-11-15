@@ -97,7 +97,6 @@ export default class Presentation extends React.Component {
               Example
             </Heading>
 
-            <Text textSize="1.5em" margin="20px 0px 0px" bold>Gerald Weber</Text>
           </Slide>
 
           {/* <Slide transition={["slide"]}>
