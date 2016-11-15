@@ -1,3 +1,17 @@
+Organizational Slides
+Serverless meetup
+Agenda
+
+2 Talks
+break
+Talk
+
+Sponsor auf Folie erwähnen, Seminar nicht
+
+
+
+
+
 // Import React
 import React from "react";
 
@@ -75,8 +89,8 @@ export default class Presentation extends React.Component {
 
             <Text textSize="1.5em" margin="20px 0px 0px" bold>Gerald Weber</Text>
           </Slide>
-
-          <Slide transition={["slide"]}>
+          
+          {/* <Slide transition={["slide"]}>
             <Heading size={2} textColor="headingColor">
               Content
             </Heading>
@@ -90,16 +104,16 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>Thoughts &amp; Learnings</ListItem></Appear>
               <Appear><ListItem>Discussion</ListItem></Appear>
             </List>
-          </Slide>
+          </Slide>*/}
 
-          <Slide transition={["slide"]}>
+          <Slide transition={["slide"]} notes="serverless tier: replace HTTP app-server with serverless tech" >
             <Heading size={2} textColor="headingColor">
               Idea
             </Heading>
             Use case should include:
             <List>
               <Appear><ListItem>Third Party authentication (eg. Google)</ListItem></Appear>
-              <Appear><ListItem>serverless compute functionality</ListItem></Appear>
+              <Appear><ListItem>serverless tier</ListItem></Appear>
               <Appear><ListItem>NoSQL datastore</ListItem></Appear>
               <Appear><ListItem>Realtime communication</ListItem></Appear>
             </List>
@@ -109,7 +123,7 @@ export default class Presentation extends React.Component {
             <Heading size={2} textColor="headingColor">
               Demo
             </Heading>
-            <Link target="_blank" href="http://www.aws.amazon.com">go to http://halupi...</Link>
+            <Link target="_blank" href="http://www.aws.amazon.com">go to http://serverless-vienna.holupi.com</Link>
           </Slide>
 
           <Slide transition={["slide"]} notes="pythonAnywhere: Host, run, and code Python in the cloud!, webhooks: All you need is code. No Provisioning, No deployment. Slack extension with webtasks., IBM Bluemix OpenWhisk = AWS Lambda, hook.io: Open-source Hosting for Webhooks and Microservices., Iron.io: Iron.io is a serverless app platform empowering Enterprise to reliably scale their Docker-based jobs on any cloud, public, private, or on-premises., PubNub: APIs for developers building secure realtime Mobile, Web, and IoT Applications">
@@ -128,12 +142,9 @@ export default class Presentation extends React.Component {
               Why Amazon?
             </Heading>
             <List>
-              <Appear><ListItem>Largest cloud provider - <a target="target" href="http://www.recode.net/2016/4/28/11586526/aws-cloud-revenue-growth">$8.9 billion revenue (15Q1-16Q1)</a></ListItem></Appear>
-              <Appear><ListItem>Well known <a target="_blank" href="http://www.techradar.com/news/internet/cloud-services/battle-of-the-public-cloud-aws-vs-microsoft-vs-google-vs-ibm-1309626">customers (Dropbox, Pinterest, Airbnb, Slack, Persicope, Netflix, Capital One, Tinder, ...)</a></ListItem></Appear>
-              <Appear><ListItem>AWS Lambda, NoSQL database</ListItem></Appear>
-              <Appear><ListItem><a target="_blank" href="https://aws.amazon.com/free/">Free tier</a></ListItem></Appear>
-              <Appear><ListItem><a target="_blank" href="https://aws.amazon.com/about-aws/global-infrastructure/">Global infrastructure</a></ListItem></Appear>
-              <Appear><ListItem>Perception as a mature platform</ListItem></Appear>
+              Leading Cloud provider
+              Free tier
+              serverless pioneer
             </List>
           </Slide>
 
@@ -144,40 +155,53 @@ export default class Presentation extends React.Component {
             <Layout>
               <Fill>
                 <Image src={images.blockDiagram.replace("/", "")} width="100%" />
+                 TODO Reihenfolge des Seitenaufbaus mit Nummern in Grafik abbilden, kurze!! Beschreibung der Blöcke
               </Fill>
             </Layout>
+            {/* IAM Identiy Provider vs. Cognito: Federated Identities: Identity Pool for google authentication 
+              IAM > Roles > commentsRole: 2 Policies for access to Lambda DynamoDB
+              commentsRole + Trusted Relationship AWS_IAM  */}
           </Slide>
 
           <Slide transition={["slide"]}>
             <Heading size={2} textColor="headingColor">
               Implementation / Configuration
             </Heading>
+            TODO: Screenshots from AWS, Code: initMQTT, publishComment, getComments; Code vereinfachen
+
             <Link target="_blank" href="http://www.aws.amazon.com">go to AWS Dashboard</Link>
           </Slide>
 
-          <Slide transition={["slide"]} notes="DDOS https://aws.amazon.com/blogs/security/how-to-configure-rate-based-blacklisting-with-aws-waf-and-aws-lambda/    https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf ">
+          <Slide transition={["slide"]} notes="Developer experience: Tooling, testing, deployment; More CLI: , eg. export CLI; Frontend optimization: Optimistic,async, non-blocking;    https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf ">
             <Layout>
               <Fill>
                 <Heading size={2} textColor="headingColor">
                   Thoughts
                 </Heading>
                 <List>
+                  <Appear><ListItem>Improve security</ListItem></Appear>
+                  <Appear><ListItem>Frontend optimization</ListItem></Appear>
                   <Appear><ListItem>Monitoring / Logging</ListItem></Appear>
-                  <Appear><ListItem>Hybrid solutions</ListItem></Appear>
-                  <Appear><ListItem>DevOps --> DevFins</ListItem></Appear>
-                  <Appear><ListItem>DOS --> rate-based BL</ListItem></Appear>
                   <Appear><ListItem>Vendor lock-in</ListItem></Appear>
+                  <Appear><ListItem>More CLI</ListItem></Appear>
+                  <Appear><ListItem>Developer experience</ListItem></Appear>
+                  
                 </List>
               </Fill>
               <Fill>
-                <Heading size={2} textColor="headingColor">
-                  Learning
+                <Heading size={2} textColor="headingColor" note="Getting things done: Deployment if endpoints are correct, it works; No Cors: does not provide CORS Headers when an error occurs, Authorization: where and who is sometimes not clear,">
+                  Learnings
                 </Heading>
                 <List>
-                  <Appear><ListItem>Mental model</ListItem></Appear>
-                  <Appear><ListItem>Promotion centric</ListItem></Appear>
-                  <Appear><ListItem>Fragmented docs</ListItem></Appear>
+                  <Appear><ListItem>Orchestration</ListItem></Appear>
+                  <Appear><ListItem>Fragmented and complete docs</ListItem></Appear>
                   <Appear><ListItem>Getting things done</ListItem></Appear>
+                  <Appear><ListItem>No CORS headers on internal error</ListItem></Appear>
+                  <Appear><ListItem>Roles/Policies - powerful but cumbersome</ListItem></Appear>
+                
+                  Plus
+
+                  <Appear><ListItem>Online editors</ListItem></Appear>
                 </List>
               </Fill>
             </Layout>
@@ -333,3 +357,13 @@ export default class Presentation extends React.Component {
 //             </Heading>
 //             <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo} /></Link>
 //           </Slide>
+
+
+
+
+// <Appear><ListItem>Largest cloud provider - <a target="target" href="http://www.recode.net/2016/4/28/11586526/aws-cloud-revenue-growth">$8.9 billion revenue (15Q1-16Q1)</a></ListItem></Appear>
+//               <Appear><ListItem>Well known <a target="_blank" href="http://www.techradar.com/news/internet/cloud-services/battle-of-the-public-cloud-aws-vs-microsoft-vs-google-vs-ibm-1309626">customers (Dropbox, Pinterest, Airbnb, Slack, Persicope, Netflix, Capital One, Tinder, ...)</a></ListItem></Appear>
+//               <Appear><ListItem>AWS Lambda, NoSQL database</ListItem></Appear>
+//               <Appear><ListItem><a target="_blank" href="https://aws.amazon.com/free/">Free tier</a></ListItem></Appear>
+//               <Appear><ListItem><a target="_blank" href="https://aws.amazon.com/about-aws/global-infrastructure/">Global infrastructure</a></ListItem></Appear>
+//               <Appear><ListItem>Perception as a mature platform</ListItem></Appear>
