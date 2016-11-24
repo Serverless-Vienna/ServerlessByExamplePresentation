@@ -112,7 +112,7 @@ export default class Presentation extends React.Component {
             <Heading size={2} textColor="headingColor">
               Demo
             </Heading>
-            <Link target="_blank" href="http://www.aws.amazon.com">go to http://serverless-vienna.holupi.com</Link>
+            <Link target="_blank" href="http://serverless-vienna.holupi.com">go to http://serverless-vienna.holupi.com</Link>
           </Slide>
 
           <Slide transition={["slide"]} notes="pythonAnywhere: Host, run, and code Python in the cloud!, webhooks: All you need is code. No Provisioning, No deployment. Slack extension with webtasks., IBM Bluemix OpenWhisk = AWS Lambda, hook.io: Open-source Hosting for Webhooks and Microservices., Iron.io: Iron.io is a serverless app platform empowering Enterprise to reliably scale their Docker-based jobs on any cloud, public, private, or on-premises., PubNub: APIs for developers building secure realtime Mobile, Web, and IoT Applications">
